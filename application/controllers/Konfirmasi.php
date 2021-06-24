@@ -5,9 +5,8 @@ class Konfirmasi extends CI_Controller {
 	function index(){
 		$id = $this->uri->segment(3);
 		if (isset($_POST['submit'])){
-			$config['upload_path'] = 'asset/files/';
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['max_size'] = '10000'; // kb
+			$config['upload_path']		= 'asset/files/';
+            $config['allowed_types']	= 'jpg|png|jpeg';
             $this->load->library('upload', $config);
             $this->upload->do_upload('f');
             $hasil=$this->upload->data();

@@ -603,8 +603,9 @@ class Reseller extends CI_Controller {
 
 	function detail_penjualan(){
 		cek_session_reseller();
-		$data['rows'] = $this->model_reseller->penjualan_konsumen_detail_reseller($this->uri->segment(3))->row_array();
-		$data['record'] = $this->model_app->view_join_where('rb_penjualan_detail','kost','id_kost',array('id_penjualan'=>$this->uri->segment(3)),'id_penjualan_detail','DESC');
+		$data['rows']		= $this->model_reseller->penjualan_konsumen_detail_reseller($this->uri->segment(3))->row_array();
+		$data['record']		= $this->model_app->view_join_where('rb_penjualan_detail','kost','id_kost',array('id_penjualan'=>$this->uri->segment(3)),'id_penjualan_detail','DESC');
+		$data['konfirmasi']	= $this->db->get_where('rb_konfirmasi_pembayaran_konsumen', ['id_penjualan'	=> $this->uri->segment(3)])->row_array();
 		$this->template->load($this->uri->segment(1).'/template',$this->uri->segment(1).'/mod_penjualan/view_penjualan_detail',$data);
 	}
 
@@ -765,7 +766,10 @@ class Reseller extends CI_Controller {
 
 	function pembayaran_konsumen(){
 		cek_session_reseller();
-		$data['record'] = $this->db->query("SELECT a.*, b.*, c.kode_transaksi, c.proses FROM `rb_konfirmasi_pembayaran_konsumen` a JOIN rb_rekening_reseller b ON a.id_rekening=b.id_rekening_reseller JOIN rb_penjualan c ON a.id_penjualan=c.id_penjualan where b.id_pemilik='".$this->session->id_pemilik."'");
+		$this->db->join('rb_rekening', 'rb_konfirmasi_pembayaran_konsumen.id_rekening = rb_rekening.id_rekening');
+		$this->db->join('rb_penjualan', 'rb_konfirmasi_pembayaran_konsumen.id_penjualan = rb_penjualan.id_penjualan');
+		$data['record']	= $this->db->get('rb_konfirmasi_pembayaran_konsumen');
+		// $data['record'] = $this->db->query("SELECT a.*, b.*, c.kode_transaksi, c.proses FROM `rb_konfirmasi_pembayaran_konsumen` a JOIN rb_rekening_reseller b ON a.id_rekening=b.id_rekening_reseller JOIN rb_penjualan c ON a.id_penjualan=c.id_penjualan where b.id_pemilik='".$this->session->id_pemilik."'");
 		$this->template->load($this->uri->segment(1).'/template',$this->uri->segment(1).'/mod_konsumen/view_konsumen_pembayaran',$data);
 	}
 

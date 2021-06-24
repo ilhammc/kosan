@@ -29,7 +29,7 @@
                               <td>$proses</td>
                               <td style='color:red;'>Rp ".rupiah($total['total']+$row['ongkir'])."</td>
                               <td><center>
-                                <a class='btn btn-success btn-xs' title='Detail Data' href='".base_url()."reseller/detail_penjualan/$row[id_penjualan]'><span class='glyphicon glyphicon-search'></span> Detail</a>
+                                <a class='btn btn-success btn-xs' title='Detail Data' href='".base_url()."reseller/detail_penjualan/$row[id_penjualan]'><span class='glyphicon glyphicon-ok'></span> Konfirmasi</a>
                                 <a class='btn btn-primary btn-xs' title='$status Data' href='".base_url()."reseller/proses_penjualan/$row[id_penjualan]/$ubah' onclick=\"return confirm('Apa anda yakin untuk ubah status jadi $status?')\"><span class='glyphicon glyphicon-$icon'></span></a>
                                 <a class='btn btn-warning btn-xs' title='Edit Data' href='".base_url()."reseller/edit_penjualan/$row[id_penjualan]'><span class='glyphicon glyphicon-edit'></span></a>
                                 <a class='btn btn-danger btn-xs' title='Delete Data' href='".base_url()."reseller/delete_penjualan/$row[id_penjualan]' onclick=\"return confirm('Apa anda yakin untuk hapus Data ini?')\"><span class='glyphicon glyphicon-remove'></span></a>

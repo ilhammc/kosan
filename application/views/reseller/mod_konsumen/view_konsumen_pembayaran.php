@@ -23,7 +23,13 @@
                   <?php 
                     $no = 1;
                     foreach ($record->result_array() as $row){
-                    if ($row['proses']=='0'){ $proses = '<i class="text-danger">Pending</i>'; }elseif($row['proses']=='1'){ $proses = '<i class="text-success">Proses</i>';  }else{ $proses = '<i class="text-info">Konfirmasi</i>'; } 
+                    if ($row['proses']=='0'){ 
+                      $proses = '<i class="text-danger">Pending</i>'; 
+                    } elseif($row['proses']=='1') { 
+                      $proses = '<i class="text-success">Diterima</i>';  
+                    } else { 
+                      $proses = '<i class="text-info">Konfirmasi</i>'; 
+                    } 
                     $total = $this->db->query("SELECT sum((a.harga_jual*a.jumlah)-a.diskon) as total FROM `rb_penjualan_detail` a where a.id_penjualan='$row[id_penjualan]'")->row_array();
                     echo "<tr>
                               <td>$no</td>

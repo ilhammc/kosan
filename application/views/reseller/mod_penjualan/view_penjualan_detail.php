@@ -1,6 +1,5 @@
 <?php $detail = $this->db->query("SELECT * FROM rb_penjualan where id_penjualan='".$this->uri->segment(3)."'")->row_array(); ?>
-
-            <div class="col-xs-12">
+<div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">Data Detail Transaksi Pemesanan</h3>
@@ -12,6 +11,7 @@
                     <tr><th width='140px' scope='row'>Kode Pembelian</th>  <td><?php echo "$rows[kode_transaksi]"; ?></td></tr>
                     <tr><th scope='row'>Nama Penyewa</th>                 <td><?php echo "<a href='".base_url().$this->uri->segment(1)."/detail_konsumen/$rows[id_penyewa]'>$rows[nama_lengkap]</a>"; ?></td></tr>
                     <tr><th scope='row'>Waktu Transaksi</th>               <td><?php echo "$rows[waktu_transaksi]"; ?></td></tr>
+                    <tr><th scope='row'>Bukti Transaksi</th>               <td><img src="<?= base_url('asset/files/' . $konfirmasi['bukti_transfer']); ?>" alt="" width="50%"></td></tr>
                     <tr><th scope='row'>Status</th>                        <td>
                       <?php
                         if ($rows['proses']=='0'){ $proses = '<i class="text-danger">Pending</i>'; $status = 'Proses'; $icon = 'star-empty'; $ubah = 1; }elseif($rows['proses']=='1'){ $proses = '<i class="text-success">Proses</i>'; $status = 'Pending'; $icon = 'star text-yellow'; $ubah = 0; }else{ $proses = '<i class="text-info">Konfirmasi</i>'; $status = 'Proses'; $icon = 'star'; $ubah = 1; }

@@ -62,15 +62,7 @@ echo "<form action='".base_url()."members/selesai_belanja' method='POST'>";
 <div class="form-group">
     <label class="col-sm-2 control-label" for="">Metode Pembayaran</label>
     <div class="col-md-10">
-        <label class="radio-inline"><input type="radio" name="kurir" class="kurir" value="cod"/> COD (Cash on delivery)</label>
-    </div>
-</div>
-<div id="kuririnfo" style="display: none;">
-    <div class="form-group">
-        <div class="col-md-12">
-            <div class='alert alert-info' style='padding:5px; border-radius:0px; margin-bottom:0px'>Service</div>
-            <p class="form-control-static" id="kurirserviceinfo"></p>
-        </div>
+        <label class="radio-inline"><input type="radio" name="kurir" class="kurir" value="cod"/> Transfer Rekening</label>
     </div>
 </div>
 

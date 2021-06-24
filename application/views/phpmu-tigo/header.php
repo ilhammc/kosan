@@ -51,7 +51,7 @@ echo "<div class='wrapper'>
           	$isi_keranjang = $this->db->query("SELECT sum(jumlah) as jumlah FROM rb_penjualan_detail where id_penjualan='".$this->session->idp."'")->row_array();
             echo "<a class='hidden-xs' href='".base_url()."members/orders_report'>Status Transaksi</a> &nbsp; &nbsp;
             	  <a href='".base_url()."members/keranjang'><b>
-            	  	<span class='glyphicon glyphicon glyphicon-shopping-cart' style='font-size:19px'></span></b>
+            	  	<span class='glyphicon glyphicon glyphicon-heart' style='font-size:19px'></span></b>
             	  	<span class='badge badgee'>".rupiah($isi_keranjang['jumlah'])."</span></a> &nbsp;
             	  <a class='btn btn-xs btn-success' style='padding:1px 12px' href='".base_url()."members/profile'>Account</a>
             	  <a class='btn btn-xs btn-danger' style='padding:1px 12px' href='".base_url()."members/logout'>Logout</a><br>";

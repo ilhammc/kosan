@@ -19,7 +19,14 @@
           }
           $detail = $this->db->query("SELECT * FROM rb_penjualan where id_penjualan='".$this->uri->segment(3)."'")->row_array();
           $total = $this->db->query("SELECT sum((a.harga_jual*a.jumlah)-a.diskon) as total, sum(b.berat*a.jumlah) as total_berat FROM `rb_penjualan_detail` a JOIN kost b ON a.id_kost=b.id_kost where a.id_penjualan='".$this->uri->segment(3)."'")->row_array();
-          if ($rows['proses']=='0'){ $proses = '<i class="text-danger">Pending</i>'; $status = 'Proses'; }elseif($rows['proses']=='1'){ $proses = '<i class="text-success">Proses</i>'; }else{ $proses = '<i class="text-info">Konfirmasi</i>'; }
+          if ($rows['proses']=='0'){ 
+            $proses = '<i class="text-danger">Pending</i>'; 
+            $status = 'Proses'; 
+          } elseif($rows['proses']=='1'){ 
+            $proses = '<i class="text-success">Pembayaran Berhasil Diterima</i>'; 
+          } else { 
+            $proses = '<i class="text-info">Konfirmasi</i>'; 
+          }
           echo "
                 <tr class='success'>
                   <td colspan='3'><b>Luas</b> <small><i class='pull-right'>(".terbilang($total['total_berat'])." Meter Persegi)</i></small></td>

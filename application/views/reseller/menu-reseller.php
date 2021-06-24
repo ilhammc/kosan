@@ -32,14 +32,14 @@
                 <a href="#"><i class="fa fa-shopping-cart"></i> <span>Transaksi</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <?php
-                        echo "<li><a href='".base_url().$this->uri->segment(1)."/penjualan'><i class='fa fa-circle-o'></i> Transaksi ke Penyewa</a></li>";
-                        echo "<li><a href='".base_url().$this->uri->segment(1)."/pembayaran_konsumen'><i class='fa fa-circle-o'></i> Pembayaran Penyewa</a></li>";
+                        echo "<li><a href='".base_url().$this->uri->segment(1)."/penjualan'><i class='fa fa-circle-o'></i> Transaksi Penyewa</a></li>";
+                        echo "<li><a href='".base_url().$this->uri->segment(1)."/pembayaran_konsumen'><i class='fa fa-circle-o'></i> Data Pembayaran Penyewa</a></li>";
                     ?>
                 </ul>
             </li>
 
-            <li class="treeview">
-                <a href="#"><i class="fa fa-book"></i> <span>Laporan</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <!-- <li class="treeview">
+                <a href="#"><i class="fa fa-book"></i> <span>Laporan</span> <i class="fa fa-angle-left pull-right"></i></a> -->
                 <ul class="treeview-menu">
                     <?php
                         echo "<li><a href='".base_url().$this->uri->segment(1)."/keuangan'><i class='fa fa-circle-o'></i> Data Keuangan</a></li>";
