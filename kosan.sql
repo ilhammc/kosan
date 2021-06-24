@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2021 at 03:29 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- Generation Time: Jun 24, 2021 at 10:05 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -435,7 +434,8 @@ INSERT INTO `kost` (`id_kost`, `id_produk_perusahaan`, `id_kategori_produk`, `id
 (7, 0, 2, 2, 2, 'Kost Graha 3b', 'Kost Graha 3b', 'Perbulan', 89000, 0, 99000, '600', 'kos11.jpg', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque condimentum mattis. Suspendisse potenti. Proin vitae elementum nisi. Aliquam eu pretium risus. Nam varius efficitur consectetur. Aenean vestibulum felis sed mollis faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin venenatis est sit amet eleifend vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id nunc eu odio ultrices pulvinar non feugiat felis. Duis consequat urna sapien, porta gravida diam venenatis at. Duis at ornare enim, ac accumsan eros. Sed in finibus metus. Etiam blandit tristique orci, sit amet congue dui facilisis id. Donec fermentum diam at orci viverra placerat. Sed nunc lorem, cursus nec vestibulum hendrerit, tempus et libero.</p>\r\n\r\n<p>Donec consequat lacinia fringilla. Proin dapibus justo at elit iaculis, eu rutrum velit dapibus. Phasellus nec augue vel nisl sagittis malesuada vel vel orci. In in euismod massa. Praesent vel blandit arcu. Maecenas eleifend dui in est rhoncus, mattis sollicitudin augue semper. Donec a lectus rhoncus, ornare nunc rutrum, egestas arcu. Aenean dapibus urna non nisl dignissim volutpat.</p>\r\n', 'admin', '2017-05-30 09:52:58'),
 (29, 0, 2, 1, 10, 'Mutia Cempaka', 'mutia-cempaka', 'Perbulan', 700000, 0, 400000, '3', 'kos3.jpg', '<p>Kost Campur, Murah dan fasilitas lengkap tersedia 10 Kamar</p><p>- Fasilitas Yang Tersedia</p><p>Kasur, Kamar Mandi, Dapur dan Lemari</p><p>- Akses Lingkungan&nbsp;</p><p>&nbsp; * Sekolahan SD Kanaya</p><p>&nbsp; * 10m Akses Mesjid</p>', 'atinsuha', '2021-05-27 21:45:12'),
 (32, 0, 2, 0, 10, 'as', 'as', 'Perbulan', 300, 0, 200, '4', '', '', 'atinsuha', '2021-06-16 20:03:32'),
-(31, 0, 2, 0, 10, 'as', 'as', 'Perbulan', 400000, 0, 5000, '3', 'fr-03.jpg', '', 'atinsuha', '2021-06-16 19:57:54');
+(31, 0, 2, 0, 10, 'as', 'as', 'Perbulan', 400000, 0, 5000, '3', 'fr-03.jpg', '', 'atinsuha', '2021-06-16 19:57:54'),
+(34, 0, 2, 0, 10, 'Mama Kembar', 'mama-kembar', '2', 300000, 0, 250000, '400', 'apotek2.jpg', '', 'atinsuha', '2021-06-25 01:14:23');
 
 -- --------------------------------------------------------
 
@@ -473,7 +473,8 @@ INSERT INTO `kost_diskon` (`id_produk_diskon`, `id_kost`, `id_pemilik`, `diskon`
 (17, 23, 3, 0),
 (18, 21, 3, 0),
 (19, 27, 1, 1000),
-(20, 29, 10, 0);
+(20, 29, 10, 0),
+(21, 33, 10, 10000);
 
 -- --------------------------------------------------------
 
@@ -520,8 +521,6 @@ INSERT INTO `menu` (`id_menu`, `id_parent`, `nama_menu`, `link`, `aktif`, `posit
 (150, 0, 'SISKOST', '#', 'Ya', 'Bottom', 18),
 (116, 0, 'Hubungi Kami', 'hubungi', 'Ya', 'Top', 4),
 (147, 0, 'Testimoni', 'testimoni', 'Ya', 'Bottom', 17),
-(148, 150, 'Konfirmasi Orders', 'konfirmasi', 'Ya', 'Bottom', 22),
-(149, 150, 'Tracking Orders', 'konfirmasi/tracking', 'Ya', 'Bottom', 21),
 (152, 150, 'Semua lapak kost', 'produk/reseller', 'Ya', 'Bottom', 20),
 (155, 150, 'Orders Report', 'members/orders_report', 'Ya', 'Bottom', 23);
 
@@ -865,7 +864,11 @@ INSERT INTO `rb_konfirmasi_pembayaran_konsumen` (`id_konfirmasi_pembayaran`, `id
 (12, 87, 'Rp 82,000', 1, 'Muhammad Arsenio', '2019-03-21', 'IMG-20190115-WA0013.jpg', '2019-03-21 12:11:56'),
 (13, 106, 'Rp 776,000', 1, 'Robby Prihandaya', '2019-07-03', 'Screenshot.png', '2019-07-03 07:45:36'),
 (14, 143, 'Rp 800,000', 0, 'gfjhgjkhgj', '2021-06-11', '', '2021-06-11 08:32:33'),
-(15, 144, 'Rp 400,000', 0, 'ilhamm', '2021-06-11', 'Login_SISAPRA.PNG', '2021-06-11 10:02:19');
+(15, 144, 'Rp 400,000', 0, 'ilhamm', '2021-06-11', 'Login_SISAPRA.PNG', '2021-06-11 10:02:19'),
+(19, 148, 'Rp 400,200', 2, 'ilham', '2021-06-25', 'apotek1.jpg', '2021-06-25 00:01:07'),
+(20, 148, 'Rp 400,000', 2, 'd cd', '2021-06-25', 'apotek2.jpg', '2021-06-25 00:30:55'),
+(21, 148, 'Rp 400,000', 2, 'ilham', '2021-06-25', 'apotek3.jpg', '2021-06-25 00:47:00'),
+(22, 151, 'Rp 250,000', 2, 'ilham', '2021-06-25', 'apotek4.jpg', '2021-06-25 01:16:02');
 
 -- --------------------------------------------------------
 
@@ -1051,71 +1054,9 @@ CREATE TABLE `rb_penjualan` (
 --
 
 INSERT INTO `rb_penjualan` (`id_penjualan`, `kode_transaksi`, `id_pembeli`, `id_penjual`, `status_pembeli`, `status_penjual`, `kurir`, `service`, `ongkir`, `waktu_transaksi`, `proses`) VALUES
-(2, 'TRX-0002', 2, 1, 'reseller', 'admin', '', '', 0, '2017-05-28 08:23:40', '1'),
-(3, 'TRX-0003', 3, 1, 'reseller', 'admin', '', '', 0, '2017-05-28 09:00:33', '0'),
-(4, 'TRX-0004', 2, 1, 'reseller', 'admin', '', '', 0, '2017-05-30 10:50:55', '1'),
-(12, 'TRX-20170531115350', 1, 1, 'konsumen', 'reseller', '', '', 0, '2017-05-31 11:53:50', '0'),
-(14, 'TRX-20170601121916', 2, 1, 'reseller', 'admin', '', '', 0, '2017-06-01 12:19:16', '1'),
-(15, 'TRX-20170601171840', 2, 1, 'reseller', 'admin', '', '', 0, '2017-06-01 17:18:40', '0'),
-(20, 'TRX-20170602152730', 1, 1, 'konsumen', 'reseller', '', '', 0, '2017-06-02 15:27:30', '0'),
-(73, 'TRX-20190216111223', 1, 2, 'konsumen', 'reseller', 'pos', 'Express Next Day Barang', 17000, '2019-02-16 11:12:51', '0'),
-(74, 'TRX-20190216112320', 1, 2, 'konsumen', 'reseller', 'jne', 'YES', 17000, '2019-02-16 11:23:38', '0'),
-(42, 'TRX-20170604112343', 3, 1, 'reseller', 'admin', '', '', 0, '2017-06-04 11:23:47', '1'),
-(43, 'TRX-20170604112516', 3, 3, 'konsumen', 'reseller', '', '', 0, '2017-06-04 11:25:16', '1'),
-(75, 'TRX-20190220070740', 2, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2019-02-20 07:07:40', '1'),
-(76, 'TRX-20190220070746', 2, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2019-02-20 07:07:46', '1'),
-(77, 'TRX-20190220072137', 2, 1, 'reseller', 'admin', '', '', 0, '2019-02-20 07:21:37', '1'),
-(53, 'TRX-20180725083202', 1, 2, 'konsumen', 'reseller', 'pos', 'Paket Kilat Khusus', 76500, '2018-07-25 08:32:02', '0'),
-(79, 'TRX-20190223150806', 1, 2, 'konsumen', 'reseller', 'pos', 'Express Next Day Barang', 34000, '2019-02-23 15:08:06', '1'),
-(58, 'TRX-20180912144318', 2, 1, 'reseller', 'admin', '', '', 0, '2018-09-12 14:43:18', '2'),
-(61, 'TRX-20181223070005', 1, 2, 'konsumen', 'reseller', 'tiki', 'ONS', 10000, '2018-12-23 07:00:16', '2'),
-(62, 'TRX-20181223080117', 1, 2, 'konsumen', 'reseller', 'pos', 'Paket Kilat Khusus', 8000, '2018-12-23 08:01:17', '0'),
-(63, 'TRX-20181223080145', 26, 2, 'konsumen', 'reseller', 'tiki', 'ONS', 17000, '2018-12-23 08:09:17', '0'),
-(67, 'TRX-20181226072823', 2, 1, 'reseller', 'admin', '', '', 0, '2018-12-26 07:28:23', '0'),
-(68, 'TRX-20181226073542', 2, 1, 'reseller', 'admin', '', '', 0, '2018-12-26 07:35:42', '2'),
-(81, 'TRX-20190321080106', 2, 1, 'reseller', 'admin', '', 'TRX-20190220072137', 0, '2019-03-21 08:01:06', '1'),
-(91, 'TRX-20190322062742', 1, 1, 'reseller', 'admin', '', '', 0, '2019-03-22 06:27:42', '1'),
-(82, 'TRX-20190321114415', 2, 1, 'reseller', 'admin', '', '', 0, '2019-03-21 11:44:15', '1'),
-(83, 'TRX-20190321115249', 2, 1, 'reseller', 'admin', '', 'TRX-20190321114415', 0, '2019-03-21 11:52:49', '1'),
-(85, 'TRX-20190321120328', 1, 2, 'konsumen', 'reseller', 'jne', 'YES', 17000, '2019-03-21 12:03:28', '1'),
-(86, 'TRX-20190321120745', 1, 2, 'konsumen', 'reseller', 'pos', 'Paket Kilat Khusus', 11000, '2019-03-21 12:07:45', '1'),
-(87, 'TRX-20190321121109', 2, 2, 'konsumen', 'reseller', 'pos', 'Express Next Day Barang', 17000, '2019-03-21 12:11:09', '2'),
-(88, 'TRX-20190322062417', 1, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2019-03-22 06:24:17', '1'),
-(89, 'TRX-20190322062422', 1, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2019-03-22 06:24:22', '1'),
-(90, 'TRX-20190322062426', 1, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2019-03-22 06:24:26', '1'),
-(92, 'TRX-20190322063729', 1, 1, 'reseller', 'admin', '', 'TRX-20190322062742', 0, '2019-03-22 06:37:29', '1'),
-(93, 'TRX-20190322063829', 1, 1, 'reseller', 'admin', '', '', 0, '2019-03-22 06:38:29', '1'),
-(94, 'TRX-20190322063914', 1, 1, 'reseller', 'admin', '', 'TRX-20190322063829', 0, '2019-03-22 06:39:14', '1'),
-(95, 'TRX-20190324101735', 3, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2019-03-24 10:17:35', '1'),
-(96, 'TRX-20190324101739', 3, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2019-03-24 10:17:39', '1'),
-(97, 'TRX-20190324101743', 3, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2019-03-24 10:17:43', '1'),
-(98, 'TRX-20190324101747', 3, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2019-03-24 10:17:47', '1'),
-(99, 'TRX-20190324101751', 3, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2019-03-24 10:17:51', '1'),
-(100, 'TRX-20190324110240', 1, 1, 'konsumen', 'reseller', '', '', 0, '2019-03-24 11:16:41', '0'),
-(101, 'TRX-20190325103704', 1, 2, 'konsumen', 'reseller', 'pos', 'Express Next Day Barang', 17000, '2019-03-25 10:38:02', '0'),
-(105, 'TRX-20190703062416', 1, 1, 'konsumen', 'reseller', 'pos', 'Express Sameday Barang', 18000, '2019-07-03 06:24:16', '0'),
-(106, 'TRX-20190703074508', 1, 2, 'konsumen', 'reseller', 'pos', 'Express Next Day Barang', 17000, '2019-07-03 07:45:08', '2'),
-(107, 'TRX-20190817071150', 1, 3, 'konsumen', 'reseller', '', '', 0, '2019-08-17 07:11:50', '0'),
-(108, 'TRX-20190831204112', 1, 3, 'konsumen', 'reseller', 'tiki', 'REG', 216000, '2019-08-31 20:41:12', '0'),
-(109, 'TRX-20190901064338', 1, 1, 'konsumen', 'reseller', '', '', 0, '2019-09-01 06:52:03', '0'),
-(110, 'TRX-20191203113328', 1, 2, 'konsumen', 'reseller', '', '', 0, '2019-12-03 11:33:40', '0'),
-(111, 'TRX-20191203113402', 1, 2, 'konsumen', 'reseller', 'pos', 'Paket Kilat Khusus', 11000, '2019-12-03 11:34:02', '1'),
-(112, 'TRX-20191203114327', 1, 2, 'konsumen', 'reseller', 'pos', 'Express Next Day Barang', 17000, '2019-12-03 11:43:27', '1'),
-(118, 'TRX-20200628084703', 1, 1, 'reseller', 'admin', '', 'TRX-20200628084041', 0, '2020-06-28 08:47:03', '1'),
-(114, 'TRX-20200612101356', 1, 2, 'konsumen', 'reseller', 'jne', 'REG', 11000, '2020-06-12 10:16:06', '0'),
-(115, 'TRX-20200625165712', 1, 3, 'konsumen', 'reseller', 'tiki', 'ECO', 50000, '2020-06-25 16:57:12', '0'),
-(116, 'TRX-20200625165750', 1, 3, 'konsumen', 'reseller', '', '', 0, '2020-06-25 16:57:50', '0'),
-(117, 'TRX-20200628084041', 1, 1, 'reseller', 'admin', '', '', 0, '2020-06-28 08:40:41', '1'),
-(119, 'TRX-20200628084811', 1, 1, 'reseller', 'admin', '', '', 0, '2020-06-28 08:48:11', '1'),
-(120, 'TRX-20200628084830', 1, 1, 'reseller', 'admin', '', 'TRX-20200628084811', 0, '2020-06-28 08:48:30', '1'),
-(121, 'TRX-20200703172915', 1, 2, 'konsumen', 'reseller', '', '', 0, '2020-07-03 17:29:29', '0'),
-(125, 'TRX-20200707133923', 1, 2, 'konsumen', 'reseller', 'cod', 'Cash on delivery', 500, '2020-07-07 13:39:23', '0'),
-(128, 'TRX-20200707135033', 1, 2, 'konsumen', 'reseller', 'jne', 'YES', 10000, '2020-07-07 13:50:33', '0'),
-(129, 'TRX-20200707140121', 1, 2, 'konsumen', 'reseller', '', '', 0, '2020-07-07 14:01:42', '0'),
-(133, 'TRX-20210527214512', 10, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2021-05-27 21:45:12', '1'),
-(136, 'TRX-20210528134913', 10, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2021-05-28 13:49:13', '1'),
-(146, 'TRX-20210616195754', 10, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2021-06-16 19:57:54', '1'),
-(147, 'TRX-20210616200332', 10, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2021-06-16 20:03:32', '1');
+(151, 'TRX-20210625011542', 28, 10, 'konsumen', 'reseller', '', '', 0, '2021-06-25 01:15:42', '1'),
+(150, 'TRX-20210625011423', 10, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2021-06-25 01:14:23', '1'),
+(149, 'TRX-20210625011328', 10, 1, 'reseller', 'admin', '', 'Stok Otomatis (Pribadi)', 0, '2021-06-25 01:13:28', '1');
 
 -- --------------------------------------------------------
 
@@ -1237,7 +1178,10 @@ INSERT INTO `rb_penjualan_detail` (`id_penjualan_detail`, `id_penjualan`, `id_ko
 (203, 133, 29, 10, 0, 0, 'M2'),
 (206, 136, 30, 5, 0, 0, 'Unit'),
 (217, 146, 31, 5, 0, 0, 'Perbulan'),
-(218, 147, 32, 2, 0, 0, 'Perbulan');
+(218, 147, 32, 2, 0, 0, 'Perbulan'),
+(221, 149, 33, 2, 0, 0, '1'),
+(223, 151, 34, 1, 0, 250000, '2'),
+(222, 150, 34, 2, 0, 0, '2');
 
 -- --------------------------------------------------------
 
@@ -1366,7 +1310,8 @@ CREATE TABLE `rb_rekening_reseller` (
 INSERT INTO `rb_rekening_reseller` (`id_rekening_reseller`, `id_pemilik`, `nama_bank`, `no_rekening`, `pemilik_rekening`) VALUES
 (1, 2, 'Bank Danamon', '56234234000', 'Syarii Sentral'),
 (2, 2, 'Bank BCA', '10823422', 'Syarii Sentral'),
-(3, 3, 'Bank Mandiri', '234123123332', 'Kalifah Umayyah');
+(3, 3, 'Bank Mandiri', '234123123332', 'Kalifah Umayyah'),
+(4, 10, 'Bank BRI', '123456789', 'a');
 
 -- --------------------------------------------------------
 
@@ -1956,7 +1901,10 @@ INSERT INTO `statistik` (`ip`, `tanggal`, `hits`, `online`) VALUES
 ('::1', '2021-06-09', 4, '1623249794'),
 ('::1', '2021-06-10', 36, '1623342254'),
 ('::1', '2021-06-11', 84, '1623399117'),
-('::1', '2021-06-16', 39, '1623849247');
+('::1', '2021-06-16', 39, '1623849247'),
+('::1', '2021-06-22', 1, '1624360666'),
+('::1', '2021-06-24', 32, '1624553909'),
+('::1', '2021-06-25', 114, '1624565085');
 
 -- --------------------------------------------------------
 
@@ -2621,13 +2569,13 @@ ALTER TABLE `komentarvid`
 -- AUTO_INCREMENT for table `kost`
 --
 ALTER TABLE `kost`
-  MODIFY `id_kost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_kost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `kost_diskon`
 --
 ALTER TABLE `kost_diskon`
-  MODIFY `id_produk_diskon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_produk_diskon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `logo`
@@ -2639,7 +2587,7 @@ ALTER TABLE `logo`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `id_menu` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `modul`
@@ -2723,7 +2671,7 @@ ALTER TABLE `rb_konfirmasi_pembayaran`
 -- AUTO_INCREMENT for table `rb_konfirmasi_pembayaran_konsumen`
 --
 ALTER TABLE `rb_konfirmasi_pembayaran_konsumen`
-  MODIFY `id_konfirmasi_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_konfirmasi_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `rb_kota`
@@ -2765,13 +2713,13 @@ ALTER TABLE `rb_pencairan_reward`
 -- AUTO_INCREMENT for table `rb_penjualan`
 --
 ALTER TABLE `rb_penjualan`
-  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `id_penjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `rb_penjualan_detail`
 --
 ALTER TABLE `rb_penjualan_detail`
-  MODIFY `id_penjualan_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
+  MODIFY `id_penjualan_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
 
 --
 -- AUTO_INCREMENT for table `rb_penjualan_temp`
@@ -2795,7 +2743,7 @@ ALTER TABLE `rb_rekening`
 -- AUTO_INCREMENT for table `rb_rekening_reseller`
 --
 ALTER TABLE `rb_rekening_reseller`
-  MODIFY `id_rekening_reseller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_rekening_reseller` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rb_reseller_cod`

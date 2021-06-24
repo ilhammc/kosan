@@ -16,7 +16,7 @@
                     <th></th>
                     <th>Status</th>
                     <th>Total Harga</th>
-                    <th></th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -39,7 +39,7 @@
                   echo "<a style='margin-right:3px' class='btn btn-default btn-xs' href='".base_url()."konfirmasi?kode=$row[kode_transaksi]'  onclick=\"return confirm('Maaf, Pembayaran ini sudah dikonfirmasi, ingin konfirmasi ulang? ')\">Konfirmasi</a>";
                 }
 
-              echo "<a class='btn btn-info btn-xs' title='Detail data pesanan' href='".base_url()."members/keranjang_detail/$row[id_penjualan]'><span class='glyphicon glyphicon-search'></span></a></td>
+              echo "<a class='btn btn-info btn-xs' title='Detail Transaksi' href='".base_url()."members/keranjang_detail/$row[id_penjualan]'><span class='glyphicon glyphicon-heart'></span></a></td>
                           </tr>
 
                           ";
